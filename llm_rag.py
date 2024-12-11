@@ -17,6 +17,7 @@ from dotenv import load_dotenv
 #  
 load_dotenv()
 api_key =os.getenv('GEMINI_API_KEY')
+model_name =os.getenv('GEMINI_API_KEY')
 
 genai.configure(api_key=api_key)
 text_loader_kwargs = {'encoding': 'utf-8'}
@@ -43,7 +44,7 @@ def process_llms (docs_path):
         model="models/embedding-001",
         google_api_key=api_key
     )
-    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", api_key=api_key)
+    llm = ChatGoogleGenerativeAI(model=model_name, api_key=api_key)
 
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     chunks = text_splitter.split_documents(read_docs(docs_path))

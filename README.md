@@ -1,6 +1,6 @@
 # LLM RAG Chat Interface
 
-A conversational interface that implements Retrieval-Augmented Generation (RAG) with Large Language Models using Markdown files as the knowledge base. Built with Gradio for an interactive web interface.
+A conversational interface that implements Retrieval-Augmented Generation (RAG) with Large Language Models using Markdown files as the knowledge base. Built with Gradio for an interactive web interface. This is based on Gemini model.
 
 ## Features
 
@@ -12,14 +12,14 @@ A conversational interface that implements Retrieval-Augmented Generation (RAG) 
 
 ## Prerequisites
 
-- Python 3.8+
+- Python 3.10+
 - pip (Python package manager)
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/llms_with_rag_gradio.git
+git https://github.com/osamaalschame/llm-RAG-Gradio-interface.git
 cd llms_with_rag_gradio
 ```
 
@@ -36,7 +36,8 @@ pip install -r requirements.txt
 
 4. Set up your environment variables by creating a `.env` file:
 ```env
-API_KEY=your_api_key_here
+GEMINI_API_KEY=your_api_key_here
+GEMINI_MODEL_NAME=model_name
 ```
 
 ## Project Structure
@@ -44,11 +45,7 @@ API_KEY=your_api_key_here
 ```
 llms_with_rag_gradio/
 ├── data/                  # Your markdown files
-├── src/
-│   ├── __init__.py
-│   ├── rag.py            # RAG implementation
-│   └── utils.py          # Utility functions
-├── app.py                # Main Gradio application
+├── llm_rag.py                # Main Gradio application
 ├── requirements.txt      # Project dependencies
 └── README.md            # This file
 ```
@@ -59,7 +56,7 @@ llms_with_rag_gradio/
 
 2. Run the application:
 ```bash
-python app.py
+python llm_rag.py --data
 ```
 
 3. Open your browser and navigate to `http://localhost:7860` to access the chat interface.
@@ -71,13 +68,13 @@ python app.py
 Create a `.env` file in the root directory with the following variables:
 
 ```env
-API_KEY=your_api_key_here
-MODEL_NAME=your_preferred_model
+GEMINI_API_KEY=your_api_key_here
+GEMINI_MODEL_NAME=gemini-1.5-flash
 ```
 
 ### Customizing the RAG System
 
-You can modify the RAG parameters in `src/rag.py`:
+You can modify the RAG parameters in `llm_rag.py`:
 
 - Chunk size for document splitting
 - Number of retrieved documents
@@ -128,4 +125,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-For support, please open an issue in the GitHub repository or contact [your_contact_info].
+For support, please open an issue in the GitHub repository.

@@ -1,0 +1,6 @@
+gradio==5.8.0
+langchain==0.0.27
+langchain_community==0.3.11
+langchain_google_genai==2.0.6
+protobuf==3.14.0
+python-dotenv==1.0.1
